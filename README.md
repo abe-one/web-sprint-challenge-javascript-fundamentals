@@ -43,9 +43,17 @@ Closure is the function within a function. It's special enough to have it's own 
 
 4. Describe the four rules of the 'this' keyword.
 
-1. If the function is declared
+A1. If the function is called with `this`: `this` will refer to the new object.
+
+A2. If the function is .called `.call()`, .applied `.apply()`, .bound `.bind()`: `this` will refer to the object inside `()`.
+
+A3. If the function is called as a method: `this` will refer to the owner of the method, the object to the left of the `.` in the method call.
+
+A4. If none of the above when calling the function: `this` will refer to the global object, in a browser that's the `window`. Technically this is a corrollary of A3 because the `window` is the default object and every function beneath is a method of it.
 
 5. Why do we need super() in an extended class?
+
+Because super() is the key for calling the parent's properties. It is the means by which the child inherits the parents values.
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade. 
 
