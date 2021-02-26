@@ -17,7 +17,11 @@ myFunction();
 
 //🚀🚀🚀 ⬇️ 📝 Explanation ⬇️ 📝 🚀🚀🚀: 
 
-
+// `nestedFunction` can access `internal` because `nestedFunction` refers to `internal` and internal is declared "above" `nestedFunction`.
+  // This works because of the way scope works.
+    // A scope inside another scope can always access values from the scopes above.
+  // When `nestedFunction` refers to `internal` it will look for the value of `internal` inside it's own scope. Upon not finding the `internal` declared, `nestedFunction` will look for `internal`'s value in the scope above.
+    // This is `nestedFunction`'s lexical scope.
 
 
 
