@@ -210,13 +210,34 @@ console.log(cuboid.surfaceArea()); // 130
 // 🦄🦄🦄 Topic 4: Classes 🦄🦄🦄 //
 //🦄🦄🦄 1. Take your prototypes from above and refactor into class syntax. Please rename your class CuboidMakerTwo and your object cuboidTwo 🦄🦄🦄
 class CuboidMakerTwo{
+  constructor(obj){
+    this.length = obj.length;
+    this.width = obj.width;
+    this.height = obj.height;
+  };
 
-}
+  volume(){return this.volume = this.length * this.width * this.height};
+
+  surfaceArea(){
+    return 2 * (
+      (this.length * this.width) +
+      (this.width * this.height) +
+      (this.height * this.length)
+    )
+  };
+};
+
+let cuboidTwo = new CuboidMaker({
+  length: 4,
+  width: 5,
+  height: 5
+})
 
 
 //🦄🦄🦄 Test your volume and surfaceArea methods by uncommenting the logs below: 🦄🦄🦄
-// console.log(cuboidTwo.volume()); // 100
-// console.log(cuboidTwo.surfaceArea()); // 130
+console.log(cuboidTwo.volume()); // 100
+console.log(cuboidTwo.surfaceArea()); // 130
+console.log(cuboidTwo);
 
 
 
@@ -224,8 +245,65 @@ class CuboidMakerTwo{
 
 // 🦄 💪 Stretch Task: Extend the base class CuboidMaker with a sub class called CubeMaker.  Find out the formulas for volume and surface area for cubes and create those methods using the dimension properties from CuboidMaker.  Test your work by logging out your volume and surface area. 🦄 💪
   
+class CubeMaker extends CuboidMaker{
+  constructor(obj){
+    super(obj);
+
+    this.cubeSide = obj.cubeSide;
+  };
+
+  cubify(){
+    if(this.cubeSide){
+      this.length = this.cubeSide;
+      this.width = this.cubeSide;
+      this.height = this.cubeSide;
+    };
+  };
+
+};
+
+let cubby = new CubeMaker({
+  cubeSide: 7
+});
+
+console.log(cubby);
+cubby.cubify();
+console.log(cubby);
+
+// Feels like it'd be more efficient and logical to simply add the `cubeSide` key and th `.cubify` method to CubeMaker. The volume and surface area methods for CubeMaker apply perfectly to cubes, so, no need for a child class.
 
 
+// 🛑🛑🛑🛑🛑IGNORE BELOW THIS LINE🛑🛑🛑🛑🛑 (unless that's useful for assessments)
+// Wouldn't the formulas for volume and surface area be the same as for cuboid only simpler?
+// It would only take 1 value: linear
+// linear would be assigned to length, width, and height
+// but as I understand, to assign a single input to multiple properties, would require a constructor function that takes the values as parameters
+// doing this would change the entire structure of the CuboidMaker function, invalidating the need for child functions, aside from the prototypes, but at that point, might as well make new prototypes using shorter formulas which apply to cubes
+// feels more like CuboidMaker should be the child of CubeMaker
+// maybe like this, but still feels inefficient, maybe I'm missing something:
+/*
+class CubeMaker{
+  constructor(obj){
+    this.length
+  }
+
+
+    cubeByLength{
+    this.width = this.length;
+    this.height = this.length;
+  };
+
+  cubeByWidth{
+    this.height = this.width;
+    this.length = this.width;
+  };
+
+  cubeByHeight{
+    this.length = this.height;
+    this.width = this.height;
+  };
+*/ 
+// ehhhh, I have an idea
 
 
 
