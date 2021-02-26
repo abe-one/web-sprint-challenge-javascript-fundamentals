@@ -29,11 +29,21 @@ Edit this document to include your answers after each question. Make sure to lea
 
 1. Briefly compare and contrast `.forEach` & `.map` (2-3 sentences max)
 
+Both `.forEach` `.map` both call functions on each item in an array. `.map` creates a new array and leaves the original array intact while `.forEach` mutates the original array.
+
 2. Explain the difference between a callback and a higher order function.
+
+A callback is a function within a higher order function.
+The callback is given to the higher order function as an argument.
+When the higher order function is called it will call _back_ the inner function.
 
 3. What is closure?
 
+Closure is the function within a function. It's special enough to have it's own word because the closure is defined not only as the function within another function but also it's entire lexical scope. The lexical scope of the closure includes, not only the inner function and any variables declared inside the inner function, but also any variable referenced by the inner function but declared above the inner function, in the higher order function. Closures don't care if the higher order function has been returned, as long as the closure was part of that return.
+
 4. Describe the four rules of the 'this' keyword.
+
+1. If the function is declared
 
 5. Why do we need super() in an extended class?
 
